@@ -1,80 +1,137 @@
-<h1 class="text-xl font-bold text-green-400">កម្មវិធីព្យាករណ៍ AI</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Game Predictor</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .console-box {
+      font-family: monospace;
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 20px #00ff88;
+      color: #00ff88;
+      height: 250px;
+      overflow-y: auto;
+    }
+    .loading-screen {
+      font-family: monospace;
+      background: #000;
+      color: #00ff88;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      z-index: 50;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .hidden-screen {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <div id="loading" class="loading-screen">
+    <p>Loading... Please wait while we set up your experience.</p>
+  </div>
 
-<a href="#how">របៀបដំណើរការ</a> <a href="#games">ហ្គេម</a> <a href="#start">ចាប់ផ្តើម</a>
+  <div id="mainContent" class="hidden-screen">
+    <header class="w-full bg-gray-800 p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-green-400">MelBet AI Predictor</h1>
+      <nav class="space-x-4">
+        <a href="#how" class="hover:text-green-400">How It Works</a>
+        <a href="#games" class="hover:text-green-400">Games</a>
+        <a href="#start" class="hover:text-green-400">Get Started</a>
+      </nav>
+    </header>
 
-<h2 class="text-3xl md:text-5xl font-bold mb-6">
-រកប្រាក់ជាមួយការព្យាករណ៍ AI
-</h2>
+    <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">Earn Real Money with AI Game Predictions</h2>
+      <p class="max-w-xl mb-8 text-gray-300">Join thousands of Nepalis using our smart AI to win in games like Aviator, Mines, and Penalty. 98% signal accuracy, real-time predictions, and fast cashouts!</p>
+      <button id="startButton" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl text-lg transition">Start Earning Now</button>
+      <div id="errorBox" class="hidden bg-red-600 p-6 rounded-xl max-w-md mx-auto mt-6">
+        <h2 class="text-xl font-bold mb-2">⚠️ Account Not Found</h2>
+        <p class="mb-4">It looks like you're not registered yet. Please create a new MelBet account and deposit funds to unlock prediction access.</p>
+        <p class="text-lg mb-4 text-yellow-400">Use special promo code: <strong>NPA555</strong></p>
+        <a href="https://refpa3665.com/L?tag=d_5724709m_59741c_&site=5724709&ad=59741&r=registration" target="_blank" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg transition">
+          Register Now on MelBet
+        </a>
+      </div>
+    </section>
 
-<p class="max-w-xl mb-8 text-gray-300">
-មនុស្សរាប់ពាន់នាក់នៅកម្ពុជាកំពុងប្រើប្រាស់ប្រព័ន្ធ AI ដ៏ឆ្លាតវៃរបស់យើងសម្រាប់ហ្គេម Aviator, Mines, Penalty និង Chicken Road។ ទទួលបានសញ្ញាក្នុងពេលវេលាជាក់ស្តែង និងប្រើវាដោយងាយស្រួលនៅលើទូរស័ព្ទរបស់អ្នក។
-</p>
+    <section class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Today’s Top Earners (MNT)</h3>
+      <div class="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto text-sm text-green-300">
+        <p>👤 User ID: 1218473422 – MNT 874,120</p>
+        <p>👤 User ID: 9912384741 – MNT 765,800</p>
+        <p>👤 User ID: 3099234822 – MNT 659,400</p>
+        <p>👤 User ID: 1187339121 – MNT 548,700</p>
+        <p>👤 User ID: 4412900113 – MNT 741,300</p>
+        <p>👤 User ID: 8283721091 – MNT 839,600</p>
+        <p>👤 User ID: 7751937742 – MNT 530,000</p>
+        <p>👤 User ID: 5554921811 – MNT 329,100</p>
+        <p>👤 User ID: 1983238742 – MNT 924,800</p>
+        <p>👤 User ID: 3377749301 – MNT 322,700</p>
+      </div>
+    </section>
+<section id="games" class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Supported Games</h3>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🎮 Aviator</h4>
+          <p class="text-gray-300">Predict when to cash out before the plane flies away! Our AI spots lift-off trends in real time.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">💣 Mines</h4>
+          <p class="text-gray-300">Avoid the bombs, collect the wins. Our system finds low-risk paths for maximum profit.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🥅 Penalty</h4>
+          <p class="text-gray-300">Know where to shoot or dive. Beat the goalkeeper with data-driven predictions.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🐔 Chicken Road</h4>
+          <p class="text-gray-300">Know where to step next. Avoid the traps with smart AI predictions.</p>
+        </div>
+      </div>
+    </section>
 
-<button>
-ចាប់ផ្តើមឥឡូវនេះ
-</button>
+    <section id="how" class="bg-gray-900 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">How It Works</h3>
+      <div class="max-w-3xl mx-auto space-y-4 text-gray-300">
+        <p>📡 Our AI scans live game data and historical results 24/7.</p>
+        <p>💡 It identifies patterns that lead to consistent wins.</p>
+        <p>📲 You receive real-time predictions you can trust — straight to your device.</p>
+      </div>
+    </section>
 
-<h2>⚠️ រកមិនឃើញគណនី</h2>
+    <section class="bg-black py-12 px-6 text-center">
+      <h3 class="text-xl font-bold text-green-400 mb-4">[ Console Monitor Log ]</h3>
+      <div class="console-box max-w-3xl mx-auto text-left" id="console">
+        <p>[INFO] Predictor service active ✅</p>
+      </div>
+    </section>
 
-<p>
-អ្នកមិនទាន់បានចុះឈ្មោះនៅឡើយទេ។ សូមបង្កើតគណនីថ្មី និងបញ្ចូលប្រាក់ចំនួន 22,000 រៀល ដើម្បីទទួលបានសិទ្ធិប្រើប្រាស់ប្រព័ន្ធព្យាករណ៍។
-</p>
+    <footer class="text-center text-gray-500 text-sm py-6">
+      © 2025 AI Predictor. Not affiliated with MelBet. Use responsibly.
+    </footer>
+  </div>
 
-<p>
-ប្រើកូដផ្សព្វផ្សាយពិសេស៖ <strong>CAM555</strong>
-</p>
+  <script>
+    setTimeout(() => {
+      document.getElementById("loading").classList.add("hidden-screen");
+      document.getElementById("mainContent").classList.remove("hidden-screen");
+    }, 3000);
 
-<a>
-ចុះឈ្មោះឥឡូវនេះ
-</a>
-
-<h3>
-អ្នករកប្រាក់បានច្រើនបំផុតថ្ងៃនេះ (KHR)
-</h3>
-
-👤 ID: 1218473422 – 1,284,000 រៀល
-👤 ID: 9912384741 – 948,000 រៀល
-👤 ID: 3099234822 – 1,126,000 រៀល
-👤 ID: 1187339121 – 876,000 រៀល
-👤 ID: 4412900113 – 1,052,000 រៀល
-👤 ID: 8283721091 – 1,368,000 រៀល
-👤 ID: 7751937742 – 732,000 រៀល
-👤 ID: 5554921811 – 895,000 រៀល
-👤 ID: 1983238742 – 1,442,000 រៀល
-👤 ID: 3377749301 – 687,000 រៀល
-
-<h3>
-ហ្គេមដែលគាំទ្រ
-</h3>
-
-🎮 Aviator
-សញ្ញាពេលវេលាសម្រាប់ការដកប្រាក់នៅក្នុងហ្គេម Aviator។
-
-💣 Mines
-ជ្រើសរើសប្រអប់ដែលមានសុវត្ថិភាពជាមួយសញ្ញាពី AI។
-
-🥅 Penalty
-ទទួលបានសញ្ញាសម្រាប់ជម្រើសបន្ទាប់។
-
-🐔 Chicken Road
-ជៀសវាងអន្ទាក់ដោយប្រើការវិភាគពី AI។
-
-<h3>
-របៀបដំណើរការ
-</h3>
-
-📡 AI របស់យើងវិភាគទិន្នន័យហ្គេម និងលទ្ធផលពីមុន 24 ម៉ោងក្នុងមួយថ្ងៃ។
-
-💡 ប្រព័ន្ធស្វែងរកគំរូ និងនិន្នាការដោយស្វ័យប្រវត្តិ។
-
-📲 អ្នកទទួលបានសញ្ញាដោយផ្ទាល់ទៅកាន់ឧបករណ៍របស់អ្នក។
-
-<h3>
-[ កំណត់ហេតុប្រព័ន្ធ ]
-</h3>
-
-[INFO] ប្រព័ន្ធកំពុងដំណើរការ ✅
-
-<footer>
-© 2025 AI Predictor. សូមប្រើប្រាស់ដោយការទទួលខុសត្រូវ។
-</footer>
+    document.getElementById("startButton").addEventListener("click", () => {
+      document.getElementById("errorBox").classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
