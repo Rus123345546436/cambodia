@@ -3,66 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Aviator Predictor Cambodia</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Aviator AI Predictor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .console-box { font-family: monospace; background-color: #1a1a1a; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 0 15px #10b981; color: #10b981; height: 200px; overflow-y: auto; }
-    .loading-screen { background: #000; color: #10b981; display: flex; align-items: center; justify-content: center; height: 100vh; flex-direction: column; position: fixed; top: 0; left: 0; width: 100%; z-index: 100; }
+    #mainContent { display: none; }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-  <div id="loading" class="loading-screen"><p>កំពុងផ្ទុកទិន្នន័យ... (Loading...)</p></div>
+  
+  <!-- Экран загрузки -->
+  <div id="loading" style="display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #10b981; align-items: center; justify-content: center; z-index: 9999;">
+    <p style="font-family: monospace;">កំពុងផ្ទុកទិន្នន័យ... (Loading...)</p>
+  </div>
 
-  <div id="mainContent" class="hidden">
-    <header class="w-full bg-gray-800 p-4 flex justify-between items-center border-b border-green-500">
+  <!-- Основной контент -->
+  <div id="mainContent">
+    <header class="w-full bg-gray-800 p-4 text-center border-b border-green-500">
       <h1 class="text-xl font-bold text-green-400">Aviator AI Predictor</h1>
     </header>
 
-    <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">ឈ្នះប្រាក់រង្វាន់ជាមួយ AI Predictor</h2>
-      <p class="max-w-xl mb-6 text-gray-300">ប្រើប្រាស់បច្ចេកវិទ្យា AI ដើម្បីទស្សន៍ទាយលទ្ធផល Aviator យ៉ាងត្រឹមត្រូវរហូតដល់ 98%។</p>
+    <section class="flex flex-col items-center justify-center px-4 py-10 text-center">
+      <h2 class="text-2xl font-bold mb-4">ឈ្នះប្រាក់រង្វាន់ជាមួយ AI</h2>
+      <p class="mb-6 text-gray-300">ទស្សន៍ទាយលទ្ធផល Aviator យ៉ាងត្រឹមត្រូវ 98%</p>
       
-      <!-- ABA BANK TRUST BLOCK -->
-      <div class="bg-white p-4 rounded-lg mb-6 shadow-xl border-2 border-blue-600">
-        <p class="text-blue-900 font-bold mb-2 text-sm">គាំទ្រការដាក់ប្រាក់តាមរយៈ៖</p>
-        <div class="flex justify-center items-center gap-2">
-            <span class="text-blue-800 font-black text-2xl">ABA</span>
-            <span class="text-black font-bold">BANK (ផ្ទេរប្រាក់ភ្លាមៗ)</span>
-        </div>
+      <!-- Блок ABA -->
+      <div class="bg-white p-4 rounded-lg mb-6 shadow-xl border-2 border-blue-600 text-center">
+        <p class="text-blue-900 font-bold text-sm">ដាក់ប្រាក់តាមរយៈ៖</p>
+        <p class="text-blue-800 font-black text-2xl">ABA BANK</p>
       </div>
 
-      <button id="startButton" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl text-xl transition">ចាប់ផ្តើមរកលុយឥឡូវនេះ</button>
+      <button id="startButton" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl text-xl transition">
+        ចាប់ផ្តើមរកលុយ
+      </button>
 
-      <div id="errorBox" class="hidden bg-red-900 p-6 rounded-xl max-w-sm mx-auto mt-6 border border-red-500">
+      <!-- Ошибка (скрыта по умолчанию) -->
+      <div id="errorBox" style="display: none;" class="bg-red-900 p-6 rounded-xl max-w-sm mx-auto mt-6 border border-red-500">
         <h2 class="text-xl font-bold mb-2">⚠️ គណនីមិនទាន់សកម្ម</h2>
-        <p class="mb-4">ដើម្បីប្រើប្រាស់កម្មវិធីនេះ អ្នកត្រូវចុះឈ្មោះ និងដាក់ប្រាក់យ៉ាងតិច 22,000 KHR។</p>
-        <p class="text-lg mb-4 text-yellow-300">ប្រើលេខកូដ៖ <strong>KHK888</strong></p>
-        <a href="https://reffpa.com/L?tag=d_5623736m_45853c_&site=5623736&ad=45853&r=registration" class="block bg-yellow-400 text-black font-bold py-3 rounded-lg">ចុះឈ្មោះឥឡូវនេះ</a>
-      </div>
-    </section>
-
-    <!-- Выплаты -->
-    <section class="bg-gray-800 py-8 px-4 text-center">
-      <h3 class="text-xl font-bold text-green-400 mb-4">អ្នកឈ្នះថ្មីៗ (Recent Winners)</h3>
-      <div class="grid grid-cols-1 gap-2 text-xs max-w-md mx-auto text-green-300">
-        <p>✅ សុខា (Sokha) +305,400 KHR</p>
-        <p>✅ ចាន់ (Chan) +402,000 KHR</p>
-        <p>✅ វិសាល (Visal) +530,000 KHR</p>
-      </div>
-    </section>
-
-    <footer class="text-center text-gray-600 py-6 text-xs">© 2025 AI Predictor - 100% Secure</footer>
-  </div>
-
-  <script>
-    setTimeout(() => {
-      document.getElementById("loading").classList.add("hidden");
-      document.getElementById("mainContent").classList.remove("hidden");
-    }, 2000);
-    document.getElementById("startButton").addEventListener("click", () => {
-      document.getElementById("errorBox").classList.remove("hidden");
-      document.getElementById("startButton").classList.add("hidden");
-    });
-  </script>
-</body>
-</html>
+        <p class="mb-4">សូមចុះឈ្មោះ និងដាក់ប្រាក់ 22,000 KHR ដើម្បីប្រើកម្មវិធី។</p>
+        <p class="text-lg mb-4 text-yellow-300">កូដ៖ <strong>KHK888</strong></p>
+        <a href="https://reffpa.com/L?tag=d_5623736m_45853c_&site=5623736&ad=45853&r=registration" class="block bg-yellow-400 text-black
