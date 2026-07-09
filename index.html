@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="km">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aviator AI Predictor | កម្មវិធីទស្សន៍ទាយ</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-    #loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; z-index: 9999; }
-    #mainContent { display: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviator AI Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-black text-white font-sans">
 
-  <div id="loading"><p class="text-green-400 font-mono animate-pulse">កំពុងភ្ជាប់ទៅម៉ាស៊ីនមេ AI... (Connecting...)</p></div>
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-black z-50">
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
+            <p class="text-green-500 font-mono">កំពុងភ្ជាប់ទៅម៉ាស៊ីនមេ AI...</p>
+        </div>
+    </div>
 
-  <div id="mainContent">
-    <!-- Hero Section -->
-    <header class="p-6 text-center">
-      <div class="inline-block p-2 bg-blue-900 rounded-lg mb-4 border border-blue-500">
-        <span class="text-white font-bold">ABA Bank Verified Partner</span>
-      </div>
-      <h1 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">AVIATOR AI PREDICTOR</h1>
-      <p class="mt-2 text-gray-400">កម្មវិធីទស្សន៍ទាយលទ្ធផលដែលមានភាពត្រឹមត្រូវ 98%</p>
-    </header>
+    <!-- Content -->
+    <div id="content" class="hidden p-6 max-w-md mx-auto text-center">
+        <h1 class="text-2xl font-bold text-green-400 mb-6">AVIATOR AI PREDICTOR</h1>
+        
+        <div class="bg-gray-800 p-6 rounded-2xl border border-blue-500 mb-6">
+            <p class="text-sm text-gray-400">គណនីរបស់អ្នក៖</p>
+            <p class="text-xl font-bold">កំពុងរង់ចាំការធ្វើឱ្យសកម្ម</p>
+            <button id="btn" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-xl font-bold">
+                ទទួលបានសញ្ញា (Get Signal)
+            </button>
+        </div>
 
-    <!-- Trust Badges -->
-    <section class="flex justify-center gap-4 py-4">
-      <div class="text-center"><div class="text-2xl">✅</div><p class="text-xs">សុវត្ថិភាពខ្ពស់</p></div>
-      <div class="text-center"><div class="text-2xl">⚡</div><p class="text-xs">លឿនរហ័ស</p></div>
-      <div class="text-center"><div class="text-2xl">🏆</div><p class="text-xs">ជ័យជំនះ 98%</p></div>
-    </section>
+        <div id="alert" class="hidden bg-red-900 p-4 rounded-xl border border-red-500">
+            <p class="font-bold">⚠️ គណនីមិនទាន់សកម្ម</p>
+            <p class="text-sm mt-2">សូមចុះឈ្មោះជាមួយកូដ៖ <strong>KHK888</strong></p>
+            <a href="https://reffpa.com/L?tag=d_5623736m_45853c_&site=5623736&ad=45853&r=registration" class="mt-4 block bg-yellow-500 text-black py-2 rounded-lg font-bold">ចុះឈ្មោះឥឡូវនេះ</a>
+        </div>
+    </div>
 
-    <!-- Main Card -->
-    <div class="max-w-md mx-auto p-6 glass rounded-2xl m-4 text-center">
-      <h2 class="text-xl font-bold mb-4">ចាប់ផ្តើមរកលុយឥឡូវនេះ</h2>
-      <button id="startButton" class="w-full bg-gradient-to-r from-green-600 to-green-400 py-4 rounded-xl font-bold text-lg hover:scale-105 transition">
-        ទទួលបានសញ្ញា (Get Signal)
-      </button>
+    <script>
+        // Принудительное скрытие лоадера через 2 секунды
+        setTimeout(function() {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('content').classList.remove('hidden');
+        }, 2000);
 
-      <div id="errorBox" class="hidden mt-6 bg-red-900 bg-opacity-50 p-4 rounded-xl border border-red-500">
-        <p class="text-red-200 font-bold">⚠️ គណនីមិនទាន់សកម្ម</p>
-        <p class="text-sm mt-2">សូមចុះឈ្មោះជាមួយកូដនេះដើម្បីទទួលបានការអនុញ្ញាត៖</p>
-        <div class="bg-black p-3 rounded-lg my-3 font-mono text-xl text-yellow-400">KHK888</div>
-        <a href="https://reffpa.com/L?tag=d_5623736m_45853c_&site=5623736&ad=45853&r=registration" class="block w-full bg-blue-600 py-3 rounded-lg font-bold">ចុះឈ្មោះឥឡូវ
+        // Обработка кнопки
+        document.getElementById('btn').onclick = function() {
+            document.getElementById('alert').classList.remove('hidden');
+            this.style.display = 'none';
+        };
+    </script>
+</body>
+</html>
