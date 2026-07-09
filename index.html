@@ -1,69 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="km">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Game Predictor</title>
+  <title>Aviator AI Predictor | កម្មវិធីទស្សន៍ទាយ</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    .console-box { font-family: monospace; background-color: #1a1a1a; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 0 20px #00ff88; color: #00ff88; height: 250px; overflow-y: auto; }
-    #loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #00ff88; display: flex; align-items: center; justify-content: center; z-index: 9999; }
-    #mainContent { display: none; } /* Скрыто до загрузки */
+    .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    #loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+    #mainContent { display: none; }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-  
-  <div id="loading">
-    <p>Loading... Please wait while we set up your experience.</p>
-  </div>
+
+  <div id="loading"><p class="text-green-400 font-mono animate-pulse">កំពុងភ្ជាប់ទៅម៉ាស៊ីនមេ AI... (Connecting...)</p></div>
 
   <div id="mainContent">
-    <header class="w-full bg-gray-800 p-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-green-400">1xBet AI Predictor</h1>
+    <!-- Hero Section -->
+    <header class="p-6 text-center">
+      <div class="inline-block p-2 bg-blue-900 rounded-lg mb-4 border border-blue-500">
+        <span class="text-white font-bold">ABA Bank Verified Partner</span>
+      </div>
+      <h1 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">AVIATOR AI PREDICTOR</h1>
+      <p class="mt-2 text-gray-400">កម្មវិធីទស្សន៍ទាយលទ្ធផលដែលមានភាពត្រឹមត្រូវ 98%</p>
     </header>
 
-    <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">Earn Real Money with AI Game Predictions</h2>
-      <button id="startButton" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl text-lg transition">Start Earning Now</button>
-      
-      <div id="errorBox" class="hidden bg-red-600 p-6 rounded-xl max-w-md mx-auto mt-6">
-        <h2 class="text-xl font-bold mb-2">⚠️ Account Not Found</h2>
-        <p class="mb-4">Please create a new account and deposit funds to unlock access.</p>
-        <p class="text-lg mb-4 text-yellow-400">Promo code: <strong>KHK888</strong></p>
-        <a href="https://reffpa.com/L?tag=d_5623736m_45853c_&site=5623736&ad=45853&r=registration" class="block bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg">Register Now</a>
-      </div>
+    <!-- Trust Badges -->
+    <section class="flex justify-center gap-4 py-4">
+      <div class="text-center"><div class="text-2xl">✅</div><p class="text-xs">សុវត្ថិភាពខ្ពស់</p></div>
+      <div class="text-center"><div class="text-2xl">⚡</div><p class="text-xs">លឿនរហ័ស</p></div>
+      <div class="text-center"><div class="text-2xl">🏆</div><p class="text-xs">ជ័យជំនះ 98%</p></div>
     </section>
 
-    <!-- Остальной контент -->
-    <section class="bg-gray-800 py-12 px-6 text-center">
-      <h3 class="text-2xl font-bold text-green-400 mb-6">Today’s Top Earners (KHR)</h3>
-      <div class="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto text-sm text-green-300">
-        <p>👤 User ID: 1718473422 – KHR 305400</p>
-        <p>👤 User ID: 1712384741 – KHR 297500</p>
-      </div>
-    </section>
+    <!-- Main Card -->
+    <div class="max-w-md mx-auto p-6 glass rounded-2xl m-4 text-center">
+      <h2 class="text-xl font-bold mb-4">ចាប់ផ្តើមរកលុយឥឡូវនេះ</h2>
+      <button id="startButton" class="w-full bg-gradient-to-r from-green-600 to-green-400 py-4 rounded-xl font-bold text-lg hover:scale-105 transition">
+        ទទួលបានសញ្ញា (Get Signal)
+      </button>
 
-    <section class="bg-black py-12 px-6 text-center">
-      <div class="console-box max-w-3xl mx-auto text-left" id="console">
-        <p>[INFO] Predictor service active ✅</p>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    // Показываем контент через 2.5 секунды
-    window.onload = function() {
-      setTimeout(() => {
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-      }, 2500);
-    };
-
-    // Логика кнопки
-    document.getElementById("startButton").addEventListener("click", function() {
-      document.getElementById("errorBox").classList.remove("hidden");
-      this.style.display = "none";
-    });
-  </script>
-</body>
-</html>
+      <div id="errorBox" class="hidden mt-6 bg-red-900 bg-opacity-50 p-4 rounded-xl border border-red-500">
+        <p class="text-red-200 font-bold">⚠️ គណនីមិនទាន់សកម្ម</p>
+        <p class="text-sm mt-2">សូមចុះឈ្មោះជាមួយកូដនេះដើម្បីទទួលបានការអនុញ្ញាត៖</p>
+        <div class="bg-black p-3 rounded-lg my-3 font-mono text-xl text-yellow-400">KHK888</div>
+        <a href="https://reffpa.com/L?tag=d_5623736m_45853c_&site=5623736&ad=45853&r=registration" class="block w-full bg-blue-600 py-3 rounded-lg font-bold">ចុះឈ្មោះឥឡូវ
