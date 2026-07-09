@@ -1,138 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="km">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Game Predictor</title>
+  <title>AI Aviator Predictor Cambodia</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    .console-box {
-      font-family: monospace;
-      background-color: #1a1a1a;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 20px #00ff88;
-      color: #00ff88;
-      height: 250px;
-      overflow-y: auto;
-    }
-    .loading-screen {
-      font-family: monospace;
-      background: #000;
-      color: #00ff88;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
-      z-index: 50;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-    }
-    .hidden-screen {
-      display: none;
-    }
+    .console-box { font-family: monospace; background-color: #1a1a1a; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 0 15px #10b981; color: #10b981; height: 200px; overflow-y: auto; }
+    .loading-screen { background: #000; color: #10b981; display: flex; align-items: center; justify-content: center; height: 100vh; flex-direction: column; position: fixed; top: 0; left: 0; width: 100%; z-index: 100; }
   </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-  <div id="loading" class="loading-screen">
-    <p>Loading... Please wait while we set up your experience.</p>
-  </div>
+  <div id="loading" class="loading-screen"><p>កំពុងផ្ទុកទិន្នន័យ... (Loading...)</p></div>
 
-  <div id="mainContent" class="hidden-screen">
-    <header class="w-full bg-gray-800 p-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-green-400">1xBet AI Predictor</h1>
-      <nav class="space-x-4">
-        <a href="#how" class="hover:text-green-400">How It Works</a>
-        <a href="#games" class="hover:text-green-400">Games</a>
-        <a href="#start" class="hover:text-green-400">Get Started</a>
-      </nav>
+  <div id="mainContent" class="hidden">
+    <header class="w-full bg-gray-800 p-4 flex justify-between items-center border-b border-green-500">
+      <h1 class="text-xl font-bold text-green-400">Aviator AI Predictor</h1>
     </header>
 
     <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">Earn Real Money with AI Game Predictions</h2>
-      <p class="max-w-xl mb-8 text-gray-300">Join thousands of Cambodian players using our smart AI to win in games like Aviator, Mines, and Penalty. 98% signal accuracy, real-time predictions, and fast cashouts!</p>
-      <button id="startButton" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl text-lg transition">Start Earning Now</button>
-      <div id="errorBox" class="hidden bg-red-600 p-6 rounded-xl max-w-md mx-auto mt-6">
-        <h2 class="text-xl font-bold mb-2">⚠️ Account Not Found</h2>
-        <p class="mb-4">It looks like you're not registered yet. Please create a new 1xBet account and deposit funds to unlock prediction access.</p>
-        <p class="text-lg mb-4 text-yellow-400">Use special promo code: <strong>KHK888
-</strong></p>
-        <a href="https://reffpa.com/L?tag=d_5623736m_45853c_&site=5623736&ad=45853&r=registration&r=registration 
-" target="_blank" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg transition">
-          Register Now on 1xbet
-        </a>
+      <h2 class="text-3xl font-bold mb-4">ឈ្នះប្រាក់រង្វាន់ជាមួយ AI Predictor</h2>
+      <p class="max-w-xl mb-6 text-gray-300">ប្រើប្រាស់បច្ចេកវិទ្យា AI ដើម្បីទស្សន៍ទាយលទ្ធផល Aviator យ៉ាងត្រឹមត្រូវរហូតដល់ 98%។</p>
+      
+      <!-- ABA BANK TRUST BLOCK -->
+      <div class="bg-white p-4 rounded-lg mb-6 shadow-xl border-2 border-blue-600">
+        <p class="text-blue-900 font-bold mb-2 text-sm">គាំទ្រការដាក់ប្រាក់តាមរយៈ៖</p>
+        <div class="flex justify-center items-center gap-2">
+            <span class="text-blue-800 font-black text-2xl">ABA</span>
+            <span class="text-black font-bold">BANK (ផ្ទេរប្រាក់ភ្លាមៗ)</span>
+        </div>
+      </div>
+
+      <button id="startButton" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl text-xl transition">ចាប់ផ្តើមរកលុយឥឡូវនេះ</button>
+
+      <div id="errorBox" class="hidden bg-red-900 p-6 rounded-xl max-w-sm mx-auto mt-6 border border-red-500">
+        <h2 class="text-xl font-bold mb-2">⚠️ គណនីមិនទាន់សកម្ម</h2>
+        <p class="mb-4">ដើម្បីប្រើប្រាស់កម្មវិធីនេះ អ្នកត្រូវចុះឈ្មោះ និងដាក់ប្រាក់យ៉ាងតិច 22,000 KHR។</p>
+        <p class="text-lg mb-4 text-yellow-300">ប្រើលេខកូដ៖ <strong>KHK888</strong></p>
+        <a href="https://reffpa.com/L?tag=d_5623736m_45853c_&site=5623736&ad=45853&r=registration" class="block bg-yellow-400 text-black font-bold py-3 rounded-lg">ចុះឈ្មោះឥឡូវនេះ</a>
       </div>
     </section>
 
-    <section class="bg-gray-800 py-12 px-6 text-center">
-      <h3 class="text-2xl font-bold text-green-400 mb-6">Today’s Top Earners (KHR)</h3>
-      <div class="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto text-sm text-green-300">
-        <p>👤 User ID: 1718473422 – KHR 305400</p>
-        <p>👤 User ID: 1712384741 – KHR 297500</p>
-        <p>👤 User ID: 1719234822 – KHR 402043</p>
-        <p>👤 User ID: 1717339121 – KHR 347890</p>
-        <p>👤 User ID: 1712900113 – KHR 750200</p>
-        <p>👤 User ID: 1713721091 – KHR 339600</p>
-        <p>👤 User ID: 1711937742 – KHR 530000</p>
-        <p>👤 User ID: 1714921811 – KHR 329100</p>
-        <p>👤 User ID: 1713238742 – KHR 424800</p>
-        <p>👤 User ID: 1717749301 – KHR 322700</p>
-      </div>
-    </section>
-<section id="games" class="bg-gray-800 py-12 px-6 text-center">
-      <h3 class="text-2xl font-bold text-green-400 mb-6">Supported Games</h3>
-      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
-          <h4 class="text-xl font-bold mb-2">🎮 Aviator</h4>
-          <p class="text-gray-300">Predict when to cash out before the plane flies away! Our AI spots lift-off trends in real time.</p>
-        </div>
-        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
-          <h4 class="text-xl font-bold mb-2">💣 Mines</h4>
-          <p class="text-gray-300">Avoid the bombs, collect the wins. Our system finds low-risk paths for maximum profit.</p>
-        </div>
-        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
-          <h4 class="text-xl font-bold mb-2">🥅 Penalty</h4>
-          <p class="text-gray-300">Know where to shoot or dive. Beat the goalkeeper with data-driven predictions.</p>
-        </div>
-        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
-          <h4 class="text-xl font-bold mb-2">🐔 Chicken Road</h4>
-          <p class="text-gray-300">Know where to step next. Avoid the traps with smart AI predictions.</p>
-        </div>
+    <!-- Выплаты -->
+    <section class="bg-gray-800 py-8 px-4 text-center">
+      <h3 class="text-xl font-bold text-green-400 mb-4">អ្នកឈ្នះថ្មីៗ (Recent Winners)</h3>
+      <div class="grid grid-cols-1 gap-2 text-xs max-w-md mx-auto text-green-300">
+        <p>✅ សុខា (Sokha) +305,400 KHR</p>
+        <p>✅ ចាន់ (Chan) +402,000 KHR</p>
+        <p>✅ វិសាល (Visal) +530,000 KHR</p>
       </div>
     </section>
 
-    <section id="how" class="bg-gray-900 py-12 px-6 text-center">
-      <h3 class="text-2xl font-bold text-green-400 mb-6">How It Works</h3>
-      <div class="max-w-3xl mx-auto space-y-4 text-gray-300">
-        <p>📡 Our AI scans live game data and historical results 24/7.</p>
-        <p>💡 It identifies patterns that lead to consistent wins.</p>
-        <p>📲 You receive real-time predictions you can trust — straight to your device.</p>
-      </div>
-    </section>
-
-    <section class="bg-black py-12 px-6 text-center">
-      <h3 class="text-xl font-bold text-green-400 mb-4">[ Console Monitor Log ]</h3>
-      <div class="console-box max-w-3xl mx-auto text-left" id="console">
-        <p>[INFO] Predictor service active ✅</p>
-      </div>
-    </section>
-
-    <footer class="text-center text-gray-500 text-sm py-6">
-      © 2025 AI Predictor. Not affiliated with MelBet. Use responsibly.
-    </footer>
+    <footer class="text-center text-gray-600 py-6 text-xs">© 2025 AI Predictor - 100% Secure</footer>
   </div>
 
   <script>
     setTimeout(() => {
-      document.getElementById("loading").classList.add("hidden-screen");
-      document.getElementById("mainContent").classList.remove("hidden-screen");
-    }, 3000);
-
+      document.getElementById("loading").classList.add("hidden");
+      document.getElementById("mainContent").classList.remove("hidden");
+    }, 2000);
     document.getElementById("startButton").addEventListener("click", () => {
       document.getElementById("errorBox").classList.remove("hidden");
+      document.getElementById("startButton").classList.add("hidden");
     });
   </script>
 </body>
